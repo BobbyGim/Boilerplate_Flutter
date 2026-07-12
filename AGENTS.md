@@ -37,9 +37,10 @@
 - UI 로직의 복잡도, 테스트 필요성, 상태 공유 등으로 presentation 패턴이 필요한 경우에는 MVC보다 MVVM을 사용한다.
 - MVVM의 ViewModel은 여러 page에서 공유되는 상태라면 Riverpod provider로 제공하고, 한 page에서만 사용한다면 해당 page 아래에 둔다.
 - 특정 page 또는 view 안에서만 쓰는 UI 상태/controller는 전역 `presentation/controller`로 빼지 않는다.
-- `views` 안의 component가 hook으로 제어되는 경우, 해당 hook은 같은 `views/hooks` 아래에 `use_*.dart` 이름으로 둔다.
-  예: `lib/src/presentation/page/home/views/home_title.dart`에서만 쓰는 hook은
-  `lib/src/presentation/page/home/views/hooks/use_home_title.dart`에 둔다.
+- page 전용 UI 폴더는 `views`가 아닌 `components` 이름을 사용한다.
+- `components` 안의 component가 hook으로 제어되는 경우, 해당 hook은 같은 `components/hooks` 아래에 `use_*.dart` 이름으로 둔다.
+  예: `lib/src/presentation/page/home/components/home_title.dart`에서만 쓰는 hook은
+  `lib/src/presentation/page/home/components/hooks/use_home_title.dart`에 둔다.
 - `core/widget`의 공통 widget이 hook으로 제어되는 경우, 해당 hook은 `core/widget/hooks` 아래에 `use_*.dart` 이름으로 둔다.
 - 여러 page에서 재사용되는 상태나 비즈니스 흐름으로 커진 경우에만 `presentation/controller` 또는 domain/usecase 경계로 올린다.
 - hook이나 controller에서 callback/action을 반환할 때는 `return` 안에서 inline 함수로 만들지 않는다.

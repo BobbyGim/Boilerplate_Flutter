@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_boilerplate/src/presentation/page/home/views/hooks/hooks.dart';
+import 'package:flutter_boilerplate/src/presentation/page/home/components/hooks/hooks.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class HomeTitle extends HookWidget {
